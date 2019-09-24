@@ -14,6 +14,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -41,10 +43,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger" href="#bicycles">Bicyles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#bicycles">Bicycles</a>
+                        <a class="nav-link js-scroll-trigger" href="#accessories">Accessories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#shoppingCart">Shopping Cart</a>
@@ -62,57 +64,57 @@
 
     <!-- Header -->
     <video id="background-video" class="videoTag" loop autoPlay muted>
-            <source src="https://res.cloudinary.com/delacue/video/upload/v1569285769/Bikers_and_Carriages_Driving_on_Street_oqif5g.mp4"
-                type="video/mp4" />
-        </video>
+        <source
+            src="https://res.cloudinary.com/delacue/video/upload/v1569285769/Bikers_and_Carriages_Driving_on_Street_oqif5g.mp4"
+            type="video/mp4" />
+    </video>
     <header class="masthead">
-           
+
         <div class="container">
-                
+
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Top View Bike Rentals!</div>
                 <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">See Bike Rentals</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#bicycles">See Bike Rentals</a>
             </div>
         </div>
     </header>
 
-
-    <!-- Services -->
-    <section class="page-section" id="services">
+    <!-- Bicycles -->
+    <section class="page-section" id="bicycles">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Bike Rentals</h2>
-                    <h3 class="section-subheading text-muted">Please select a catagory below to begin your rental</h3>
-                    
+                    <h3 class="section-subheading text-muted">Please select a bicycle below to begin your rental</h3>
+
                 </div>
             </div>
-            <div class="row text-center">
+            <div class="row text-center" id="bike-selections">
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">City Bicycles</h4>
+
+                    <img class="img-fluid bike-img" src="http://via.placeholder.com/250x250?text=Adult%20Female%20Bike"
+                        alt="">
+
+                    <h4 class="bicycle-heading">City Bicycles</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
                         architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-bicycle fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Mountain Bicyles</h4>
+                    <h4 class="bicycle-heading">Mountain Bicyles</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
                         architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-bicycle fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Recreational Bicyles</h4>
+                    <h4 class="bicycle-heading">Recreational Bicyles</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
                         architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
@@ -120,9 +122,451 @@
         </div>
     </section>
 
+    <!-- accessories -->
+    <section class="bg-light page-section" id="accessories">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Accessories</h2>
+                    <h3 class="section-subheading text-muted">You must select a bicycle rental before choosing
+                        accessories</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 bicycle-item">
+                    <a class="bicycle-link" data-toggle="modal" href="#bicycleModal1">
+                        <div class="bicycle-hover">
+                            <div class="bicycle-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/bicycle/01-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="bicycle-caption">
+                        <h4>blahbalh</h4>
+                        <p class="text-muted">yadda yadda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Shopping Cart -->
+    <div class="px-4 px-lg-0">
+
+        <!-- Shopping Cart Header-->
+        <div class="container text-white py-5 text-center">
+            <h1 class="display-4">Shopping cart</h1>
+            <p class="lead mb-0">Please review your order before submitting </p>
+        </div>
+
+        <!-- Shopping Cart list items-->
+        <div class="pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+                        <!-- Shopping cart table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="p-2 px-3 text-uppercase">Product</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="py-2 text-uppercase">Price</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="py-2 text-uppercase">Quantity</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                            <div class="py-2 text-uppercase">Remove</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="border-0">
+                                            <div class="p-2">
+                                                <img src="http://via.placeholder.com/250x250?text=Adult%20Female%20Bike"
+                                                    alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"> <a href="#"
+                                                            class="text-dark d-inline-block align-middle">Some bike Rental</a></h5><span
+                                                        class="text-muted font-weight-normal font-italic d-block">Category:
+                                                        yadda</span>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td class="border-0 align-middle"><strong>$79.00</strong></td>
+                                        <td class="border-0 align-middle"><strong>3</strong></td>
+                                        <td class="border-0 align-middle"><a href="#" class="text-dark"><i
+                                                    class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="p-2">
+                                                <img src="http://via.placeholder.com/250x250?text=Adult%20Female%20Bike"
+                                                    alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Some bike Rental</a></h5><span
+                                                        class="text-muted font-weight-normal font-italic">Blah:
+                                                        blah</span>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td class="align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle"><strong>3</strong></td>
+                                        <td class="align-middle"><a href="#" class="text-dark"><i
+                                                    class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="p-2">
+                                                <img src="http://via.placeholder.com/250x250?text=Adult%20Female%20Bike"
+                                                    alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Female bike</a></h5><span
+                                                        class="text-muted font-weight-normal font-italic">Blah:
+                                                        Blah</span>
+                                                </div>
+                                            </div>
+                                        <td class="align-middle"><strong>$79.00</strong></td>
+                                        <td class="align-middle"><strong>3</strong></td>
+                                        <td class="align-middle"><a href="#" class="text-dark"><i
+                                                    class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- End -->
+                    </div>
+                </div>
+
+                <div class="row py-5 p-4 bg-white rounded shadow-sm">
+                    <div class="col-lg-6">
+                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                        <div class="p-4">
+                            <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                            <div class="input-group mb-4 border rounded-pill p-2">
+                                <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
+                                    class="form-control border-0">
+                                <div class="input-group-append border-0">
+                                    <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i
+                                            class="fa fa-gift mr-2"></i>Apply coupon</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">bike rental instructions</div>
+                        <div class="p-4">
+                            <p class="font-italic mb-4">If you have some information or comments regarding bike rental you can leave them
+                                in the box below</p>
+                            <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
+                        </div>
+                        <div class="p-4">
+                            <p class="font-italic mb-4">Rental and additional costs are calculated based on values you
+                                have entered.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Insurance Option</strong><strong>$10.00</strong></li>
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Total</strong>
+                                    <h5 class="font-weight-bold">$400.00</h5>
+                                </li>
+                            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Vanessa-de-la-cuetara 2019</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bicycle and Accessory Modals -->
+
+    <!-- Modal 1 -->
+    <div class="bicycle-modal modal fade" id="bicycleModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto"
+                                    src="http://via.placeholder.com/250x250?text=Adult%20Male%20Bike" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Threads</li>
+                                    <li>Category: Illustration</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="bicycle-modal modal fade" id="bicycleModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/bicycle/02-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Explore</li>
+                                    <li>Category: Graphic Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="bicycle-modal modal fade" id="bicycleModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/bicycle/03-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Finish</li>
+                                    <li>Category: Identity</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="bicycle-modal modal fade" id="bicycleModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/bicycle/04-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Lines</li>
+                                    <li>Category: Branding</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="bicycle-modal modal fade" id="bicycleModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/bicycle/05-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Southwest</li>
+                                    <li>Category: Website Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="bicycle-modal modal fade" id="bicycleModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/images/darkBGpre.jpeg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Window</li>
+                                    <li>Category: Photography</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
