@@ -1,16 +1,20 @@
 $(function () {
+
   // target areas in index.html using jQuery selectors
   const addItem = $("#add-item");
   const delItem = $("#del-item");
-  const accessoryList = $("#accessories");
+  const accessoryList = $("#accessory-list");
   const bikeList = $("#bike-list");
   const shoppingCartList = $("#shopping-cart-list");
+
+  //
+  const currentShoppingCart = [];
 
   //-------------------------GET AND RENDER ALL Items--------------------//
   //function that will be called after API call retrieves JSON data
   //funciton will take JSON data and dynamically render on page
 
-  // (JSON data is provided therefore call is a simulation)
+  // (JSON data is provided therefore call is a simulation the response is stored in const variable products)
   const products = [{
       id: 1,
       name: "Adult Male Bike",
