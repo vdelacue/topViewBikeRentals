@@ -1,5 +1,4 @@
 // data provided
-
 const products =
 {
     "products": [
@@ -48,3 +47,6 @@ const products =
     ]
   };
 
+//
+
+// Render Bikes 
