@@ -1,20 +1,28 @@
 $(function () {
 
+  // ---------
+  // VARIABLES
+  // ---------
+
   // target areas in index.html using jQuery selectors
-  const addItem = $("#add-item");
-  const delItem = $("#del-item");
+  const addItemBtn = $(".add-item");
+  const delItemBtn = $(".del-item");
   const accessoryList = $("#accessory-list");
   const bikeList = $("#bike-list");
   const shoppingCartList = $("#shopping-cart-list");
 
-  //
-  const currentShoppingCart = [];
+  //variables to reflect user interaction and change events
+  let shoppingCartItemArr = [];
+  let shoppingCartSubTotal = 0;
+  let currentItem = {};
+  let isBikeRented = false;
 
-  //-------------------------GET AND RENDER ALL Items--------------------//
-  //function that will be called after API call retrieves JSON data
-  //funciton will take JSON data and dynamically render on page
+  // ---------
+  // FUNCTIONS
+  // ---------
 
-  // (JSON data is provided therefore call is a simulation the response is stored in const variable products)
+  // GET AND RENDER ALL ITEMS
+  // JSON data is provided (Simulate API call here and store the response in const `products`)
   const products = [{
       id: 1,
       name: "Adult Male Bike",
@@ -59,7 +67,8 @@ $(function () {
     }
   ];
 
-  const displayProducts = function (data) {
+  // Function to display products acccording to product_type
+  const displayProducts = data => {
     accessoryList.empty();
     bikeList.empty();
 
@@ -67,16 +76,16 @@ $(function () {
       if (data[i].product_type === "bike") {
         bikeList.append(`
         <div class="col-xs-4 col-md-4" style="width: 18rem;" data-id="${data[i].id}">
-          <img src="${data[i].image}" class="card-img-top" alt="...">
+          <img src="${data[i].image}" class="card-img-top" alt="${data[i].name}">
           <div class="card-body">
             <h5 class="card-title">${data[i].name}</h5>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Price: $${data[i].price}</li>
-              <li class="list-group-item">Quanity: <input class="product-quantity "type="number" value="1" min="1"></li>
+              <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
-              <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Add to Cart</a>
+              <a href="" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</a>
             </div>
           </div>
         </div>
@@ -90,19 +99,52 @@ $(function () {
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Price: $${data[i].price}</li>
-              <li class="list-group-item">Quanity: <input class="product-quantity "type="number" value="1" min="1"></li>
+              <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
-              <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Add to Cart</a>
+              <a href="${isBikeRented ? "bicycles":"#rentBikeModal"}" data-product-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</a>
             </div>
           </div>
         </div>
     `)
       }
-
     }
-
   };
+  // calling function on page load to see current products
   displayProducts(products);
 
-});
+  // -------------------
+  // ON-CLICK FUNCTIONS
+  // ------------------
+
+  //Add Item to Cart function
+  const handleAddItemToCart = (JSONdata) => {
+    let itemID = $(this).data("product-id");
+    let itemQty = productQty.val();
+    // loop through array of products to find item / with backend this would be simple API call using the product id then push item to 
+    currentItem = JSONdata.map(item => {
+      if (item.id === itemID) {
+        return {
+          ...item,
+          Qty: itemQty
+        }
+      }
+    });
+    console.log(currentItem);
+
+
+    if (!isBikeRented) {
+      alert("rent bike modal goes here")
+    } else {
+      shoppingCartItemList.push(currentItem);
+      console.log(shoppingCartList)
+      shoppingCartSubTotal += currentItem.price * currentItem.Qty;
+      console.log(shoppingCartSubTotal);
+    };
+
+    addItemBtn.on("click", handleAddItemToCart(products));
+
+
+  };
+
+})

@@ -19,8 +19,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
-        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles -->
@@ -59,16 +58,16 @@
         </div>
     </nav>
 
-    <!-- Header -->
+    <!-- Video element background -->
     <video id="background-video" class="videoTag" loop autoPlay muted>
         <source
             src="https://res.cloudinary.com/delacue/video/upload/v1569285769/Bikers_and_Carriages_Driving_on_Street_oqif5g.mp4"
             type="video/mp4" />
     </video>
+
+    <!-- Header -->
     <header class="masthead">
-
         <div class="container">
-
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Top View Bike Rentals!</div>
                 <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
@@ -118,7 +117,6 @@
                 </div>
             </div>
 
-
             <!-- Shopping Cart list items-->
             <div class="pb-5">
                 <div class="container">
@@ -154,7 +152,7 @@
                                                         <h5 class="mb-0"> <a href="#"
                                                                 class="text-dark d-inline-block align-middle">Some bike
                                                                 Rental</a></h5><span
-                                                            class="text-muted font-weight-normal font-italic d-block">Category:
+                                                            class="text-muted font-weight-normal font-italic d-block">Product-Type:
                                                             yadda</span>
                                                     </div>
                                                 </div>
@@ -231,7 +229,7 @@
                                 <p class="font-italic mb-4">If you have some information or comments regarding bike
                                     rental you can leave them
                                     in the box below</p>
-                                <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+                                <textarea name="user-comment" cols="30" rows="2" class="form-control"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -241,7 +239,7 @@
                                 <p class="font-italic mb-4">Rental and additional costs are calculated based on values
                                     you
                                     have entered.</p>
-                                <ul class="list-unstyled mb-4">
+                                <ul class="list-unstyled mb-4" id="order-summary">
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                             class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong
