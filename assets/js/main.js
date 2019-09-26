@@ -5,14 +5,14 @@ $(function () {
   // ---------
 
   // target areas in index.html using jQuery selectors
-  const addItemBtn = $(".add-item");
-  const delItemBtn = $(".del-item");
-  const accessoryList = $("#accessory-list");
-  const bikeList = $("#bike-list");
-  const shoppingCartList = $("#shopping-cart-list");
+  const $addItemBtn = $(".add-item");
+  const $delItemBtn = $(".del-item");
+  const $accessoryList = $("#accessory-list");
+  const $bikeList = $("#bike-list");
+  const $shoppingCartList = $("#shopping-cart-list");
 
   //variables to reflect user interaction and change events
-  let shoppingCartItemArr = [];
+  let shoppingCartListArr = [];
   let shoppingCartSubTotal = 0;
   let currentItem = {};
   let isBikeRented = false;
@@ -69,12 +69,12 @@ $(function () {
 
   // Function to display products acccording to product_type
   const displayProducts = data => {
-    accessoryList.empty();
-    bikeList.empty();
+    $accessoryList.empty();
+    $bikeList.empty();
 
     for (let i = 0; i < data.length; i++) {
       if (data[i].product_type === "bike") {
-        bikeList.append(`
+        $bikeList.append(`
         <div class="col-xs-4 col-md-4" style="width: 18rem;" data-id="${data[i].id}">
           <img src="${data[i].image}" class="card-img-top" alt="${data[i].name}">
           <div class="card-body">
@@ -85,13 +85,13 @@ $(function () {
               <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
-              <a href="" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</a>
+              <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
             </div>
           </div>
         </div>
     `)
       } else {
-        accessoryList.append(`
+        $accessoryList.append(`
         <div class="col-xs-4 col-md-4" style="width: 18rem;" data-id="${data[i].id}">
           <img src="${data[i].image}" class="card-img-top" alt="${data[i].name}">
           <div class="card-body">
@@ -102,7 +102,7 @@ $(function () {
               <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
-              <a href="${isBikeRented ? "bicycles":"#rentBikeModal"}" data-product-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</a>
+              <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -113,38 +113,52 @@ $(function () {
   // calling function on page load to see current products
   displayProducts(products);
 
+
+  let handleIsBikeRented = () => {
+    console.log(currentItem)
+    if (!isBikeRented && currentItem.product_type != "bike") {
+      alert("rent bike modal goes here")
+    } else {
+      if (shoppingCartListArr.icludes(currentItem.id)) {
+console.log("item is already in cart")
+      } else {
+        shoppingCartListArr.push(currentItem);
+        console.log(shoppingCartListArr)
+        shoppingCartSubTotal += currentItem.price * currentItem.Qty;
+        console.log(shoppingCartSubTotal);
+        isBikeRented = true;
+      }
+    };
+  }
+
+  let addItemToCart = () => {
+    console.log("adding " + currentItem + " to Cart")
+    //function will check to see if the current item is in the cart if it is it will adjust the quantity and subtotal
+    //if item is not in cart it will push to cart 
+  }
   // -------------------
   // ON-CLICK FUNCTIONS
   // ------------------
 
   //Add Item to Cart function
-  const handleAddItemToCart = (JSONdata) => {
-    let itemID = $(this).data("product-id");
-    let itemQty = productQty.val();
-    // loop through array of products to find item / with backend this would be simple API call using the product id then push item to 
-    currentItem = JSONdata.map(item => {
+
+
+  $('.add-item').click(function (event) {
+    event.preventDefault();
+    console.log("condition hit")
+    let itemID = $(this).data('id');
+    let itemQty = $(".productQty").val();
+    console.log(itemID);
+    products.map(item => {
       if (item.id === itemID) {
-        return {
+        currentItem = {
           ...item,
-          Qty: itemQty
+          Qty: parseInt(itemQty)
         }
       }
     });
     console.log(currentItem);
-
-
-    if (!isBikeRented) {
-      alert("rent bike modal goes here")
-    } else {
-      shoppingCartItemList.push(currentItem);
-      console.log(shoppingCartList)
-      shoppingCartSubTotal += currentItem.price * currentItem.Qty;
-      console.log(shoppingCartSubTotal);
-    };
-
-    addItemBtn.on("click", handleAddItemToCart(products));
-
-
-  };
+    handleIsBikeRented();
+  });
 
 })
