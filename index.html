@@ -13,13 +13,16 @@
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Plugin JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
     <!-- Custom fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
-
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles -->
@@ -101,8 +104,8 @@
                         accessories</h3>
                 </div>
             </div>
-             <!-- Accessory List dynamically rendered -->
-            <div class="row" id="accessory-list">  
+            <!-- Accessory List dynamically rendered -->
+            <div class="row" id="accessory-list">
             </div>
         </div>
     </section>
@@ -142,8 +145,8 @@
                                             </th>
                                         </tr>
                                     </thead>
+                                    <!-- content for shopping cart dynamically rendered -->
                                     <tbody id="shoppingCartDisplay">
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -184,15 +187,13 @@
                                     you
                                     have entered.</p>
                                 <ul class="list-unstyled mb-4" id="order-summary">
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                            class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                            class="text-muted">Insurance Option</strong><strong>$10.00</strong></li>
+                                    <li class="d-flex justify-content-between py-3 border-bottom" id="orderSubTotal"><strong
+                                            class="text-muted" >Order Subtotal </strong><strong>$0.00</strong></li>
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong
                                             class="text-muted">Tax</strong><strong>$0.00</strong></li>
                                     <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                            class="text-muted">Total</strong>
-                                        <h5 class="font-weight-bold">$400.00</h5>
+                                            class="text-muted" >Total</strong>
+                                        <h5 class="font-weight-bold" id="total">$0.00</h5>
                                     </li>
                                 </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to
                                     checkout</a>
@@ -245,17 +246,54 @@
             </div>
         </div>
     </footer>
+    <!-- Modal for No Bike Rented-->
+    <div class="modal fade" id="noBikeRentedModal" tabindex="-1" role="dialog" aria-labelledby="noBikeRentedModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="noBikeRentedModalLabel2">No Bike Rented</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    In order to add accessories or add-on's to your cart you must have a bike rented. Please Rent a bike
+                    first and then select your accessories and or add-on's.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
+     <!-- Modal for Item Already in Cart-->
+     <div class="modal fade" id="itemAlreadyInCartModal" tabindex="-1" role="dialog" aria-labelledby="itemAlreadyInCartModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="itemAlreadyInCartModalLabel2">No Bike Rented</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 In order to add accessories or add-on's to your cart you must have a bike rented. Please Rent a bike
+                 first and then select your accessories and or add-on's.
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+     </div>
+ </div>
 
     <!-- Bootstrap core JavaScript -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <!-- Custom scripts -->
     <script src="assets/js/main.js"></script>

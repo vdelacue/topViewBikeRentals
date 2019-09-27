@@ -307,7 +307,7 @@ body {
   }
 
   .productQty {
-    width: 15%;
+    width: 20%;
   }
   
   @media (min-width: 767px) {

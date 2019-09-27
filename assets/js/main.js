@@ -8,14 +8,17 @@ $(function () {
   const $delItemBtn = $(".del-item");
   const $accessoryList = $("#accessory-list");
   const $bikeList = $("#bike-list");
-  const $shoppingCartList = $("#shopping-cart-list");
+  
 
   //variables to reflect user interaction and change events
   let shoppingCartListArr = [];
   let shoppingCartIDs = [];
   let shoppingCartSubTotal = 0;
+  let tax = 0;
   let currentItem = {};
   let isBikeRented = false;
+  let isAddingItem = false;
+  
 
   // ---------
   // FUNCTIONS
@@ -112,12 +115,11 @@ $(function () {
   // calling function on page load to see current products
   displayProducts(products);
 
-//function to update shopping cart on the page
-
-let updateShoppingCartDisplay = () => {
-  $('#shoppingCartDisplay').empty();
-  for(let i = 0; i < shoppingCartListArr.length; i++){
-    $("#shoppingCartDisplay").append(`
+  //function to update shopping cart on the page
+  let updateShoppingCartDisplay = () => {
+    $('#shoppingCartDisplay').empty();
+    for (let i = 0; i < shoppingCartListArr.length; i++) {
+      $("#shoppingCartDisplay").append(`
     <tr>
     <th scope="row" class="border-0">
         <div class="p-2">
@@ -129,55 +131,72 @@ let updateShoppingCartDisplay = () => {
             </div>
         </div>
     </th>
-    <td class="border-0 align-middle"><strong>${(shoppingCartListArr[i].price).toFixed(2)}</strong></td>
+    <td class="border-0 align-middle"><strong>$${(shoppingCartListArr[i].price).toFixed(2)}</strong></td>
     <td class="border-0 align-middle"><strong>Qty: <input class="productQty" type="number" value="${shoppingCartListArr[i].Qty}" min="1"></strong></td>
-    <td class="border-0 align-middle"><button id="${shoppingCartListArr[i].id}" class="text-dark"><i class="fa fa-trash"></i></a></td>
+    <td class="border-0 align-middle"><button data-id="${shoppingCartListArr[i].id}" class="del-item fa fa-trash"></button></td>
 </tr>
     `)
+    }
   }
-}
-
-
-
-
-
-
-
-
+//Update Shopping Cart Summary
+  let updateShoppingCartSummary = () => {
+    $('#orderSubTotal').empty();
+    $('#orderSubTotal').append(`
+    <strong class="text-muted" >Order Subtotal </strong><strong>$${(shoppingCartSubTotal).toFixed(2)}</strong>`)
+    $('#total').empty();
+    $('#total').append(`
+    <strong class="text-muted">Total</strong>
+    <h5 class="font-weight-bold" id="total">$${(shoppingCartSubTotal + tax).toFixed(2)}</h5>`)
+  }
 
   //function to check if bike is rented and then either prompt user to rent bike or add item to cart 
   let handleIsBikeRented = () => {
-    console.log(currentItem)
     if (!isBikeRented && currentItem.product_type != "bike") {
-      alert("rent bike modal goes here")
+      $('#noBikeRentedModal').modal('show')
     } else {
-      addItemToCart();
+      isAddingItem ? addItemToCart() : delItemFromCart();
     };
   }
+
   // function to add item to cart and adjust variables accordingly
   let addItemToCart = () => {
     if (shoppingCartIDs.includes(currentItem.id)) {
-      console.log("item is already in cart")
+      alert("Item Already in Cart")
     } else {
       shoppingCartListArr.push(currentItem);
       shoppingCartIDs.push(currentItem.id);
-      console.log(shoppingCartListArr)
-      shoppingCartSubTotal += currentItem.price * currentItem.Qty;
-      console.log(shoppingCartSubTotal);
+      updateShoppingCartSubtotal();
+      updateShoppingCartDisplay();
+      updateShoppingCartSummary();
       isBikeRented = true;
+      isAddingItem = false;
     }
   }
+
+  let delItemFromCart = () => {
+      updateShoppingCartSubtotal();
+      updateShoppingCartDisplay();
+      updateShoppingCartSummary();
+      isDelItem = false;
+    }
+
+  let updateShoppingCartSubtotal = () => {
+    shoppingCartSubTotal = 0;
+    for(let i = 0; i < shoppingCartListArr.length; i++){
+      shoppingCartSubTotal += shoppingCartListArr[i].price * shoppingCartListArr[i].Qty;
+    }
+  }
+
   // -------------------
   // ON-CLICK FUNCTIONS
   // ------------------
 
-//add item to cart button
+  //add item to cart button
   $('.add-item').click(function (event) {
     event.preventDefault();
-    console.log("condition hit")
+    isAddingItem = true;
     let itemID = $(this).data('id');
     let itemQty = $(".productQty").val();
-    console.log(itemID);
     products.map(item => {
       if (item.id === itemID) {
         currentItem = {
@@ -186,9 +205,15 @@ let updateShoppingCartDisplay = () => {
         }
       }
     });
-    console.log(currentItem);
     handleIsBikeRented();
-    updateShoppingCartDisplay();
+  });
+
+  $('.del-item').click(function (event) {
+    event.preventDefault();
+    let itemID = $(this).data('id');
+    shoppingCartListArr = shoppingCartListArr.filter(item => {item.id !== itemID});
+    shoppingCartIDs = shoppingCartIDs.filter(item => {item.id !== itemID});
+    handleIsBikeRented();
   });
 
 })
