@@ -13,6 +13,7 @@ $(function () {
 
   //variables to reflect user interaction and change events
   let shoppingCartListArr = [];
+  let shoppingCartIDs = [];
   let shoppingCartSubTotal = 0;
   let currentItem = {};
   let isBikeRented = false;
@@ -81,7 +82,7 @@ $(function () {
             <h5 class="card-title">${data[i].name}</h5>
           </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: $${data[i].price}</li>
+              <li class="list-group-item">Price: $${(data[i].price).toFixed(2)}</li>
               <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
@@ -98,7 +99,7 @@ $(function () {
             <h5 class="card-title">${data[i].name}</h5>
           </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: $${data[i].price}</li>
+              <li class="list-group-item">Price: $${(data[i].price).toFixed(2)}</li>
               <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
@@ -119,10 +120,11 @@ $(function () {
     if (!isBikeRented && currentItem.product_type != "bike") {
       alert("rent bike modal goes here")
     } else {
-      if (shoppingCartListArr.icludes(currentItem.id)) {
-console.log("item is already in cart")
+      if (shoppingCartIDs.includes(currentItem.id)) {
+             console.log("item is already in cart")
       } else {
         shoppingCartListArr.push(currentItem);
+        shoppingCartIDs.push(currentItem.id);
         console.log(shoppingCartListArr)
         shoppingCartSubTotal += currentItem.price * currentItem.Qty;
         console.log(shoppingCartSubTotal);
@@ -141,7 +143,6 @@ console.log("item is already in cart")
   // ------------------
 
   //Add Item to Cart function
-
 
   $('.add-item').click(function (event) {
     event.preventDefault();
