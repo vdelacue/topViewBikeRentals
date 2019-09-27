@@ -5,7 +5,6 @@ $(function () {
   // ---------
 
   // target areas in index.html using jQuery selectors
-  const $addItemBtn = $(".add-item");
   const $delItemBtn = $(".del-item");
   const $accessoryList = $("#accessory-list");
   const $bikeList = $("#bike-list");
@@ -22,7 +21,6 @@ $(function () {
   // FUNCTIONS
   // ---------
 
-  // GET AND RENDER ALL ITEMS
   // JSON data is provided (Simulate API call here and store the response in const `products`)
   const products = [{
       id: 1,
@@ -83,7 +81,7 @@ $(function () {
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Price: $${(data[i].price).toFixed(2)}</li>
-              <li class="list-group-item">Quanity: <input class="productQty" type="number" value="1" min="1"></li>
+              <li class="list-group-item">Qty: <input class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
               <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
@@ -114,36 +112,66 @@ $(function () {
   // calling function on page load to see current products
   displayProducts(products);
 
+//function to update shopping cart on the page
 
+let updateShoppingCartDisplay = () => {
+  $('#shoppingCartDisplay').empty();
+  for(let i = 0; i < shoppingCartListArr.length; i++){
+    $("#shoppingCartDisplay").append(`
+    <tr>
+    <th scope="row" class="border-0">
+        <div class="p-2">
+            <img src="${shoppingCartListArr[i].image}"
+                alt="${shoppingCartListArr[i].name}" width="70" class="img-fluid rounded shadow-sm">
+            <div class="ml-3 d-inline-block align-middle">
+                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${shoppingCartListArr[i].name}</a></h5>
+                <span class="text-muted font-weight-normal font-italic d-block">Product-Type: ${shoppingCartListArr[i].product_type}</span>
+            </div>
+        </div>
+    </th>
+    <td class="border-0 align-middle"><strong>${(shoppingCartListArr[i].price).toFixed(2)}</strong></td>
+    <td class="border-0 align-middle"><strong>Qty: <input class="productQty" type="number" value="${shoppingCartListArr[i].Qty}" min="1"></strong></td>
+    <td class="border-0 align-middle"><button id="${shoppingCartListArr[i].id}" class="text-dark"><i class="fa fa-trash"></i></a></td>
+</tr>
+    `)
+  }
+}
+
+
+
+
+
+
+
+
+
+  //function to check if bike is rented and then either prompt user to rent bike or add item to cart 
   let handleIsBikeRented = () => {
     console.log(currentItem)
     if (!isBikeRented && currentItem.product_type != "bike") {
       alert("rent bike modal goes here")
     } else {
-      if (shoppingCartIDs.includes(currentItem.id)) {
-             console.log("item is already in cart")
-      } else {
-        shoppingCartListArr.push(currentItem);
-        shoppingCartIDs.push(currentItem.id);
-        console.log(shoppingCartListArr)
-        shoppingCartSubTotal += currentItem.price * currentItem.Qty;
-        console.log(shoppingCartSubTotal);
-        isBikeRented = true;
-      }
+      addItemToCart();
     };
   }
-
+  // function to add item to cart and adjust variables accordingly
   let addItemToCart = () => {
-    console.log("adding " + currentItem + " to Cart")
-    //function will check to see if the current item is in the cart if it is it will adjust the quantity and subtotal
-    //if item is not in cart it will push to cart 
+    if (shoppingCartIDs.includes(currentItem.id)) {
+      console.log("item is already in cart")
+    } else {
+      shoppingCartListArr.push(currentItem);
+      shoppingCartIDs.push(currentItem.id);
+      console.log(shoppingCartListArr)
+      shoppingCartSubTotal += currentItem.price * currentItem.Qty;
+      console.log(shoppingCartSubTotal);
+      isBikeRented = true;
+    }
   }
   // -------------------
   // ON-CLICK FUNCTIONS
   // ------------------
 
-  //Add Item to Cart function
-
+//add item to cart button
   $('.add-item').click(function (event) {
     event.preventDefault();
     console.log("condition hit")
@@ -160,6 +188,7 @@ $(function () {
     });
     console.log(currentItem);
     handleIsBikeRented();
+    updateShoppingCartDisplay();
   });
 
 })
