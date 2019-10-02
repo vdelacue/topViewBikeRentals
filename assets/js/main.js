@@ -132,7 +132,7 @@ $(function () {
         </div>
     </th>
     <td class="border-0 align-middle"><strong>$${(shoppingCartListArr[i].price).toFixed(2)}</strong></td>
-    <td class="border-0 align-middle"><strong>Qty: <input id="productQtyID${shoppingCartListArr[i].id}" class="productQty"type="number" value="${shoppingCartListArr[i].Qty}" min="1"></strong></td>
+    <td class="border-0 align-middle"><strong>Qty: <input id="productQtyID${shoppingCartListArr[i].id}" class="productQty" type="number" value="${shoppingCartListArr[i].Qty}" min="1"></strong></td>
     <td class="border-0 align-middle"><button data-id="${shoppingCartListArr[i].id}" class="del-item fa fa-trash"></button></td>
 </tr>
     `)
@@ -196,8 +196,11 @@ $(function () {
     event.preventDefault();
     isAddingItem = true;
     let itemID = $(this).data('id');
-    let itemQtyID = "productQty" + itemID
+    let itemQtyID = "#productQtyID" + itemID;
+    console.log(itemQtyID + "itemQTYID")
+    console.log(itemID + "itemID")
     let itemQtyVal = $(itemQtyID).val();
+    console.log(itemQtyVal + "itemQTYval")
     products.map(item => {
       if (item.id === itemID) {
         currentItem = {
