@@ -87,7 +87,7 @@ $(function () {
               <li class="list-group-item">Qty: <input id="productQtyID${data[i].id}" class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
-              <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
+              <button OnClick="location.href='#shoppingCart'" data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@ $(function () {
               <li class="list-group-item">Quanity: <input id="productQtyID${data[i].id}" class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
-              <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
+              <button OnClick="location.href='#shoppingCart'" data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -197,10 +197,8 @@ $(function () {
     isAddingItem = true;
     let itemID = $(this).data('id');
     let itemQtyID = "#productQtyID" + itemID;
-    console.log(itemQtyID + "itemQTYID")
-    console.log(itemID + "itemID")
     let itemQtyVal = $(itemQtyID).val();
-    console.log(itemQtyVal + "itemQTYval")
+    
     products.map(item => {
       if (item.id === itemID) {
         currentItem = {
