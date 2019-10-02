@@ -1,5 +1,5 @@
 # Top View Bike Rentals
-bike rental simulation site
+Bike Rental simulation site
 
 # **Top View Bike Rentals**
 a single page bike rental simulation site. The site includes a complete checkout process, which means users are able to select the type of product, select the number of product, view a summary before checkout, and in the end, check out. Site is intended to demonstrate a checkout experience that is as smooth as possible.
