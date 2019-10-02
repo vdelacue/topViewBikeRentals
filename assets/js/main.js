@@ -84,7 +84,7 @@ $(function () {
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Price: $${(data[i].price).toFixed(2)}</li>
-              <li class="list-group-item">Qty: <input id="productQtyID${data[i].id}" type="number" value="1" min="1"></li>
+              <li class="list-group-item">Qty: <input id="productQtyID${data[i].id}" class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
               <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
@@ -101,7 +101,7 @@ $(function () {
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Price: $${(data[i].price).toFixed(2)}</li>
-              <li class="list-group-item">Quanity: <input id="productQtyID${data[i].id}" type="number" value="1" min="1"></li>
+              <li class="list-group-item">Quanity: <input id="productQtyID${data[i].id}" class="productQty" type="number" value="1" min="1"></li>
             </ul>
             <div class="card-body">
               <button data-id="${data[i].id}" class="add-item btn btn-dark rounded-pill py-2 btn-block">Add to Cart</button>
@@ -132,7 +132,7 @@ $(function () {
         </div>
     </th>
     <td class="border-0 align-middle"><strong>$${(shoppingCartListArr[i].price).toFixed(2)}</strong></td>
-    <td class="border-0 align-middle"><strong>Qty: <input class="productQtyID${shoppingCartListArr[i].id}" type="number" value="${shoppingCartListArr[i].Qty}" min="1"></strong></td>
+    <td class="border-0 align-middle"><strong>Qty: <input id="productQtyID${shoppingCartListArr[i].id}" class="productQty"type="number" value="${shoppingCartListArr[i].Qty}" min="1"></strong></td>
     <td class="border-0 align-middle"><button data-id="${shoppingCartListArr[i].id}" class="del-item fa fa-trash"></button></td>
 </tr>
     `)
